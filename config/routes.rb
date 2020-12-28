@@ -1,3 +1,13 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'examples#index'
+
+  resources :examples, only: [] do
+    collection do
+      get :click_to_edit
+    end
+  end
+
+  resources :contacts
 end
