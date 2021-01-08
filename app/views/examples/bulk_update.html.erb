@@ -1,0 +1,20 @@
+<%#= content_for :head do %>
+  <%#= stylesheet_link_tag :bulk_update %>
+<%# end %>
+
+<h1>Bulk update</h1>
+
+<h4>Select Rows And Activate Or Deactivate Below</h4>
+
+<div hx-include="#checked-contacts" hx-target="#tbody">
+  <button hx-put="<%= activate_contacts_path %>">Activate</button>
+  <button hx-put="<%= deactivate_contacts_path %>">Deactivate</button>
+</div>
+
+<%= form_with html: { id: 'checked-contacts' } do |form| %>
+  <%= render(
+    'contacts/contacts_table',
+    contacts: @contacts,
+    include_checkbox: true
+  ) %>
+<% end %>
