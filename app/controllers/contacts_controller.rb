@@ -2,8 +2,10 @@ class ContactsController < ApplicationController
   before_action :find_contact, only: %i[edit update show destory]
   before_action :find_multiple_contacts, only: %i[activate deactivate]
 
+  layout false
+
   def index
-    @contacts = Contact.all
+    @contacts = Contact.page(params[:page])
   end
 
   def show; end
@@ -29,6 +31,10 @@ class ContactsController < ApplicationController
   end
 
   private
+
+  def index_params
+    params.require(:page)
+  end
 
   def contact_params
     params.require(:contact).permit(:first_name, :last_name, :email, :active)

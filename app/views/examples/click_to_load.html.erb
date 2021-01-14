@@ -1,0 +1,16 @@
+<h1>Click to load</h1>
+
+<h4>This example shows how to implement click-to-load the next page in a table of data.</h4>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody id="tbody">
+    <%= render 'contacts/click_to_load_rows', contacts: @contacts %>
+  </tbody>
+</table>

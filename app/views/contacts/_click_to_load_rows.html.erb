@@ -1,0 +1,19 @@
+<%= render(
+  partial: 'contacts/contact_row',
+  collection: contacts,
+  as: :contact,
+  locals: { include_checkbox: false }
+) %>
+
+<tr id="replaceMe">
+  <td colspan="3">
+    <%= button_tag(
+      disabled: contacts.last_page?,
+      'hx-get': contacts_path(page: contacts.next_page),
+      'hx-target': '#replaceMe',
+      'hx-swap': 'outerHTML'
+    ) do %>
+      Load More Agents...
+    <% end %>
+  </td>
+</tr>
