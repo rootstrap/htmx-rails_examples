@@ -17,13 +17,13 @@ class ContactsController < ApplicationController
   end
 
   def activate
-    update_status(true)
+    update_status(status: true)
 
     render_contact_row
   end
 
   def deactivate
-    update_status(false)
+    update_status(status: false)
 
     render_contact_row
   end
@@ -42,7 +42,7 @@ class ContactsController < ApplicationController
     @contacts = Contact.where(id: params[:ids])
   end
 
-  def update_status(status)
+  def update_status(status:)
     Contact.where(id: params[:ids]).update(active: status)
   end
 
