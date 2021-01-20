@@ -1,0 +1,11 @@
+<h1>Click to edit</h1>
+
+<h4>This pattern provides inline editing without a page refresh</h4>
+
+<div hx-target='this' hx-swap='outerHTML'>
+  <%= render @contact %>
+
+  <button hx-get='<%= edit_contact_path(@contact) %>'>
+    Click To Edit
+  </button>
+</div>

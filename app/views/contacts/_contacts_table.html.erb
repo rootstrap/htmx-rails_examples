@@ -1,0 +1,20 @@
+<% include_checkbox = false unless defined?(:include_checkbox) %>
+
+<table>
+  <thead>
+  <tr>
+    <%= include_checkbox ? content_tag(:th) : '' %>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody id="tbody">
+    <%= render(
+      partial: 'contacts/contact_row',
+      collection: contacts,
+      as: :contact,
+      locals: { include_checkbox: include_checkbox }
+    ) %>
+  </tbody>
+</table>

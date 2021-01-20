@@ -1,0 +1,19 @@
+<% first_td = content_tag(:td) do %>
+  <%= check_box_tag 'ids[]', contact.id -%>
+<% end %>
+
+<% changed_contacts ||= {} %>
+<% klass = changed_contacts[contact.id] ? changed_contacts[contact.id] : '' %>
+
+<tr class="<%= klass %>">
+  <%= include_checkbox ? first_td : '' %> 
+  <td>
+    <%= "#{contact.first_name} #{contact.last_name}" %>
+  </td>
+  <td>
+    <%= contact.email %>
+  </td>
+  <td>
+    <%= contact.active ? 'Active' : 'Inactive' %>
+  </td>
+</tr>
