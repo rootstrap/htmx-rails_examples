@@ -8,4 +8,8 @@ class ExamplesController < ApplicationController
   def bulk_update
     @contacts = Contact.all
   end
+
+  def click_to_load
+    @contacts = Contact.page(1)
+  end
 end

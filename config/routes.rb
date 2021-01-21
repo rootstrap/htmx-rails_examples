@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     collection do
       get :click_to_edit
       get :bulk_update
+      get :click_to_load
     end
   end
 

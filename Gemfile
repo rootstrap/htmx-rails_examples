@@ -2,7 +2,9 @@
 
 ruby '2.7.2'
 
+gem 'faker'
 gem 'jbuilder', '~> 2.7'
+gem 'kaminari'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.0'
 gem 'sqlite3', '~> 1.4'
