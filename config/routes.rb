@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get :click_to_edit
       get :bulk_update
       get :click_to_load
+      get :delete_row
     end
   end
 

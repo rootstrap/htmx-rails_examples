@@ -1,0 +1,25 @@
+<%= content_for :head do %>
+  <%= stylesheet_link_tag 'delete_row', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<h1>Delete Row</h1>
+
+<h4>This example shows how to implement a delete button that removes a table row upon completion.</h4>
+
+<table class="table delete-row-example">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody hx-confirm="Are you sure?" hx-target="closest tr" hx-swap="outerHTML swap:1s">
+    <%= render(
+      partial: 'contacts/contact_row_with_delete_button',
+      collection: @contacts,
+      as: :contact
+    ) %>
+  </tbody>
+</table>

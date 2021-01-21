@@ -1,6 +1,9 @@
 class ContactsController < ApplicationController
-  before_action :find_contact, only: %i[edit update show destory]
+  before_action :find_contact, only: %i[edit update show destroy]
   before_action :find_multiple_contacts, only: %i[activate deactivate]
+
+  # CSRF token authenticity error using htmx-delete
+  protect_from_forgery except: [:destoy]
 
   layout false
 
@@ -16,6 +19,12 @@ class ContactsController < ApplicationController
     @contact.update(contact_params)
 
     redirect_back fallback_location: root_path
+  end
+
+  def destroy
+    @contact.destroy
+
+    head :ok
   end
 
   def activate

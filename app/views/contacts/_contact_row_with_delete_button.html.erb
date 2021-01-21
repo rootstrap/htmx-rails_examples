@@ -1,0 +1,16 @@
+<tr>
+  <td>
+    <%= "#{contact.first_name} #{contact.last_name}" %>
+  </td>
+  <td>
+    <%= contact.email %>
+  </td>
+  <td>
+    <%= contact.active ? 'Active' : 'Inactive' %>
+  </td>
+  <td>
+    <%= button_tag type: 'button', data: { 'hx-delete' => contact_path(contact) } do %>
+      Delete
+    <% end %>
+  </td>
+</tr>
